@@ -1,0 +1,384 @@
+/* ============================================================
+   ARCHIVO: estilos/estilos.css
+   PARA QUÉ SIRVE: guarda el diseño (colores, letras, espacios)
+   de TODAS las páginas del portafolio de viajes. Cada página lo
+   enlaza con <link>, así cambias el diseño en un solo lugar.
+   ============================================================ */
+
+/* ---------- 1. VARIABLES ----------
+   Colores y letras definidos una sola vez. Si quieres otro
+   color, solo cambias el valor aquí y cambia en todo el sitio. */
+:root {
+  --fondo: #eefaff;       /* fondo de la página: azul muy claro */
+  --texto: #10243e;       /* texto principal */
+  --azul: #0077e6;        /* color principal: azul vivo del mar */
+  --azul-oscuro: #005bb5; /* para el hover de botones */
+  --turquesa: #00c2c7;    /* segundo color vivo, para degradados */
+  --sol: #ffc400;         /* acento: amarillo sol intenso */
+  --borde: #c4e4f5;       /* líneas suaves */
+  --blanco: #ffffff;
+  --letra-titulos: Georgia, "Times New Roman", serif;
+  --letra-texto: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- 2. REINICIO BÁSICO ----------
+   Quita los márgenes por defecto del navegador. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- 3. ESTILO GENERAL ----------
+   Letra, color y fondo de toda la página. */
+body {
+  font-family: var(--letra-texto);
+  color: var(--texto);
+  line-height: 1.6;
+
+  /* IMAGEN DE FONDO DE TODA LA PÁGINA.
+     - La primera capa (linear-gradient) es una película clara y
+       transparente que suaviza la foto para que el texto se lea.
+     - La segunda capa (url) es la foto. Como el CSS está dentro de
+       la carpeta "estilos", la ruta empieza con ../ para subir
+       una carpeta y entrar a "imagenes".
+     - center / cover: centra la foto y la estira para llenar todo.
+     - fixed: la foto se queda quieta al hacer scroll.
+     - background-color: color de respaldo si la imagen no carga. */
+  background-color: var(--fondo);
+  background-image:
+    linear-gradient(rgba(238, 250, 255, 0.35), rgba(238, 250, 255, 0.35)),
+    url("../imagenes/fondo.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3 {
+  font-family: var(--letra-titulos);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--azul);
+}
+
+/* ---------- 4. CABECERA Y MENÚ ----------
+   Barra azul de arriba con el nombre y los enlaces. */
+header {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+.barra {
+  max-width: 960px;
+  margin: 0 auto;            /* centra el contenido */
+  padding: 16px 20px;
+  display: flex;             /* logo y menú en la misma fila */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;           /* en el celular el menú baja */
+  gap: 12px;
+}
+
+.logo {
+  font-family: var(--letra-titulos);
+  font-size: 1.4rem;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Marca la página actual con una línea amarilla */
+nav a.activo {
+  border-bottom: 3px solid var(--sol);
+  border-radius: 6px 6px 0 0;
+}
+
+/* ---------- 5. CONTENIDO PRINCIPAL ---------- */
+main {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 40px 20px;
+
+  /* Panel blanco semitransparente: deja ver un poco la foto
+     de fondo, pero hace que el texto se lea bien. */
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+}
+
+main h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+main h2 {
+  margin: 28px 0 10px;
+}
+
+main p {
+  max-width: 65ch;           /* líneas cortas, más fáciles de leer */
+  margin-bottom: 16px;
+}
+
+/* ---------- 6. PORTADA DE INICIO ----------
+   Bloque grande con degradado de mar a cielo. Si quieres una
+   foto, cambia el degradado por:
+   background: url("../imagenes/portada.jpg") center / cover;  */
+.portada {
+  background: linear-gradient(135deg, var(--azul) 0%, var(--turquesa) 100%);
+  color: var(--blanco);
+  border-radius: 12px;
+  padding: 64px 32px;
+}
+
+.portada h1 {
+  font-size: 3rem;
+}
+
+.portada .frase {
+  font-size: 1.2rem;
+  margin: 16px 0 28px;
+}
+
+/* ---------- 7. BOTÓN ---------- */
+.boton {
+  display: inline-block;
+  background: var(--sol);
+  color: var(--texto);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #e6ae00;
+}
+
+/* Botón azul para las páginas con fondo claro (Contacto) */
+.boton-azul {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+.boton-azul:hover {
+  background: var(--azul-oscuro);
+}
+
+/* ---------- 8. TARJETAS DE DESTINOS ----------
+   Cuadrícula: se acomoda sola según el ancho de la pantalla. */
+.destinos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  overflow: hidden;          /* recorta la imagen con las esquinas */
+}
+
+/* Espacio donde va la foto del lugar. Mientras no tengas fotos,
+   se ve como un bloque de color. */
+.tarjeta .foto {
+  height: 140px;
+  background: var(--azul);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;         /* la foto llena el espacio sin deformarse */
+  display: block;
+}
+
+.tarjeta .contenido {
+  padding: 16px 20px 20px;
+}
+
+.tarjeta h3 {
+  margin-bottom: 6px;
+}
+
+.tarjeta p {
+  margin-bottom: 0;
+}
+
+/* Hace que TODA la tarjeta sea un enlace clicable.
+   El <a> envuelve la tarjeta y se le quita el subrayado y el
+   color azul de los enlaces normales. */
+.enlace-tarjeta {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Al pasar el mouse, la tarjeta se levanta un poco para
+   indicar que se puede abrir */
+.enlace-tarjeta:hover .tarjeta {
+  border-color: var(--azul);
+  transform: translateY(-4px);
+}
+
+.tarjeta {
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+/* Texto "Ver más" al final de cada tarjeta */
+.ver-mas {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--azul);
+  font-weight: 600;
+}
+
+/* Enlace "Volver a destinos" de las páginas de detalle */
+.volver {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Bloque grande de color arriba de cada página de destino */
+.banner {
+  height: 180px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+/* Colores distintos para cada espacio de foto */
+.foto.cartagena { background: #ff5a4e; }
+.foto.sanandres { background: #00c2c7; }
+.foto.guatape   { background: #7ac70c; }
+.foto.salento   { background: #00a86b; }
+
+/* ---------- 9. LISTA DE CONSEJOS ---------- */
+.consejos {
+  list-style: none;
+  max-width: 65ch;
+}
+
+.consejos li {
+  background: var(--blanco);
+  border-left: 5px solid var(--sol);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ---------- 10. FORMULARIO (Contacto) ---------- */
+form {
+  max-width: 480px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--azul);   /* se ve dónde estás escribiendo */
+}
+
+/* ---------- 11. PIE DE PÁGINA ---------- */
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 1px solid var(--borde);
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);   /* se lee sobre la foto */
+}
+
+/* ---------- 12. CELULAR ----------
+   Si la pantalla mide menos de 600px, se ajustan los tamaños. */
+@media (max-width: 600px) {
+  .portada {
+    padding: 40px 20px;
+  }
+
+  .portada h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ---------- 13. ENLACES EN FORMA DE BOTÓN REDONDO ----------
+   Se usan en la lista de destinos de Inicio y en "Otros destinos". */
+.pastillas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.pastillas a {
+  display: inline-block;
+  background: var(--blanco);
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--azul);
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.pastillas a:hover {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+/* ---------- 14. IMAGEN GRANDE DE LA PÁGINA DE UN DESTINO ----------
+   object-fit: cover llena el espacio sin deformar la foto. */
+.banner-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* En el celular el fondo fijo a veces falla, mejor que se mueva
+   con la página. */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
+}

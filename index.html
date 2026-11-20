@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+  ARCHIVO: index.html
+  PARA QUÉ SIRVE: es la página de INICIO del portafolio de viajes.
+  Es la primera que se abre: da la bienvenida y tiene enlaces
+  rápidos a los destinos. Debe llamarse "index.html" para que sea
+  la página principal.
+-->
+<html lang="es">
+<head>
+  <!-- Permite que se vean bien las tildes y la ñ -->
+  <meta charset="UTF-8">
+  <!-- Hace que la página se adapte al celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>Inicio | Mis viajes</title>
+  <!-- Icono de la pestaña: el archivo icono.jpg está junto a index.html -->
+  <link rel="icon" href="icono.jpg">
+  <!-- Conecta esta página con el archivo de diseño (CSS) -->
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+  <!-- CABECERA: logo y menú. Cada <a href="..."> es un hipervínculo
+       que lleva a otra página. "activo" marca la página actual. -->
+  <header>
+    <div class="barra">
+      <a class="logo" href="index.html">Mis viajes</a>
+      <nav>
+        <ul>
+          <li><a class="activo" href="index.html">Inicio</a></li>
+          <li><a href="destinos.html">Destinos</a></li>
+          <li><a href="consejos.html">Consejos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL: lo que cambia en cada página -->
+  <main>
+    <!-- Bloque grande de bienvenida (ver .portada en el CSS) -->
+    <section class="portada">
+      <!-- h1 es el título más importante de la página -->
+      <h1>Descubre Colombia viaje a viaje</h1>
+      <p class="frase">Lugares que quiero conocer, los que ya visité y consejos para planear tu próxima salida.</p>
+      <!-- Botón que lleva a la página de destinos -->
+      <a class="boton" href="destinos.html">Ver destinos</a>
+    </section>
+
+    <h2>Destinos destacados</h2>
+    <p>Entra directo a cualquiera de estos lugares:</p>
+
+    <!-- Lista de enlaces rápidos. Cada <li> tiene un hipervínculo
+         a la página de un destino (se ven como botones redondos). -->
+    <ul class="libreta">
+      <a href="https://es.wikipedia.org/wiki/Cartagena_de_Indias">Cartagena_de_Indias</a>
+      <a href="https://es.wikipedia.org/wiki/Isla_de_San_Andr%C3%A9s_(Colombia)">Isla_de_San_Andres</a>
+      <a href="https://es.wikipedia.org/wiki/Guatap%C3%A9">Guatapé</a>
+      <a href="https://es.wikipedia.org/wiki/Salento_(Quind%C3%ADo)">Salento</a>
+      <a href="https://es.wikipedia.org/wiki/Santuario_de_Las_Lajas">Santuario de Las Lajas</a>
+    </ul>
+
+    <h2>Antes de viajar</h2>
+    <p>Revisa los <a href="consejos.html">consejos para viajar</a> o <a href="contacto.html">escríbeme</a> si quieres recomendaciones.</p>
+  </main>
+  <!-- PIE DE PÁGINA: texto final, se repite en todas las páginas -->
+  <footer>
+    <p>&copy; 2026 Mis viajes. Hecho con HTML y CSS.</p>
+  </footer>
+
+</body>
+</html>
